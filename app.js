@@ -3,11 +3,13 @@
 let express = require('express');
 let app     = express();
 
+app.use(express.static('public'));
 app.set('view engine','ejs');
 
-app.get('/contact', (req,res)         => res.render('contact'));
-app.get('/showimage/:name', (req,res) => res.render('showimage',{name:req.params.name}));
-app.get('/',(req,res)                 => res.render('index'));
-app.get('/index',(req,res)            => res.render('index'));
+app.get('/index',(req,res) => res.render('index'));
+app.get('/about', (req,res) => res.render('about'));
+app.get('/post',(req,res) => res.render('post'));
+app.get('/contact', (req,res) => res.render('contact'));
+app.get('/',(req,res) => res.render('index'));
 
 app.listen(3000);
